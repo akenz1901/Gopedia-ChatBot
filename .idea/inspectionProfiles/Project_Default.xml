@@ -1,0 +1,97 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="user-select" />
+            <item index="1" class="java.lang.String" itemvalue="font-feature-settings" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="30" name="Style Sheets" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="14">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="h1" />
+            <item index="7" class="java.lang.String" itemvalue="li" />
+            <item index="8" class="java.lang.String" itemvalue="a" />
+            <item index="9" class="java.lang.String" itemvalue="hr" />
+            <item index="10" class="java.lang.String" itemvalue="div" />
+            <item index="11" class="java.lang.String" itemvalue="tr" />
+            <item index="12" class="java.lang.String" itemvalue="td" />
+            <item index="13" class="java.lang.String" itemvalue="il" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="10">
+            <item index="0" class="java.lang.String" itemvalue="dj-database-url" />
+            <item index="1" class="java.lang.String" itemvalue="django-crispy-forms" />
+            <item index="2" class="java.lang.String" itemvalue="Django" />
+            <item index="3" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="4" class="java.lang.String" itemvalue="python-decouple" />
+            <item index="5" class="java.lang.String" itemvalue="tzdata" />
+            <item index="6" class="java.lang.String" itemvalue="asgiref" />
+            <item index="7" class="java.lang.String" itemvalue="whitenoise" />
+            <item index="8" class="java.lang.String" itemvalue="gunicorn" />
+            <item index="9" class="java.lang.String" itemvalue="sqlparse" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E501" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
+          <option value="N802" />
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="int.random" />
+          <option value="object.get" />
+          <option value="set.__getitem__" />
+          <option value="kata.strings_and_its_functions.eliminate_punctuation" />
+          <option value="kata.strings_and_its_functions.count_occurrence_of_character" />
+          <option value="kata.strings_and_its_functions.find" />
+          <option value="kata.strings_and_its_functions.split" />
+          <option value="kata.strings_and_its_functions.display_string_format_with_decimal" />
+          <option value="kata.strings_and_its_functions.display_string" />
+          <option value="django.db.models.fields.CharField.__add__" />
+          <option value="newspaper_project.articles.models.Article" />
+          <option value="FileNotFoundError.__or__" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
