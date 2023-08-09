@@ -14,6 +14,7 @@ logging.basicConfig(
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    logging.info(f"Starting conversation with {update.message.from_user.username} message ::: {update.message}")
     await context.bot.send_message(chat_id=update.effective_chat.id, text=f"Hello {update.effective_chat.username},\n"
                                                                           f"I'm doctor ")
 
@@ -44,7 +45,7 @@ async def unknown(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def register(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message = update.message.text
     split_message = message.split('\n')
-    print(split_message)
+    logging.info(logging.INFO, split_message)
     await context.bot.send_message(chat_id=update.effective_chat.id,
                                    text=split_message[1] + split_message[2] if len(split_message) == 3 else
                                    split_message[0] + split_message[1])
