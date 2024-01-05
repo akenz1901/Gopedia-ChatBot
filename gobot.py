@@ -6,6 +6,8 @@ from telegram.ext import (filters,
                           ApplicationBuilder,
                           CommandHandler,
                           ContextTypes, InlineQueryHandler)
+from utils.filters import GoPediaFilter
+from utils.enums import START_COMMAND_GREETING
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -14,13 +16,20 @@ logging.basicConfig(
 
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    logging.info(f"Starting conversation with {update.message.from_user.username} message ::: {update.message}")
+    logging.info(
+        f"Starting conversation with {update.message.from_user.username} message ::: {update.message}")
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=START_COMMAND_GREETING.replace('{}', update.effective_chat.username))
+
+
+async def get_response_for_invalid_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="*Oops* invalid relative message, \nkindly help me"
+                                                                          " with a proper message")
+
+
+async def greetings(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    logging.info(update.message.text)
     await context.bot.send_message(chat_id=update.effective_chat.id, text=f"Hello {update.effective_chat.username},\n"
                                                                           f"I'm doctor ")
-
-
-async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
 
 
 async def inline_caps(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -36,8 +45,8 @@ async def inline_caps(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def unknown(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="Sorry, I didn't understand that command.\n"
-                                                                          "I believe you will find the below helpful\n"
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Sorry, I don't understand that command.\n"
+                                                                          "I believe you will find the commands below helpful\n"
                                                                           "/start\n"
                                                                           "/get_exam_result")
 
@@ -54,11 +63,16 @@ async def register(update: Update, context: ContextTypes.DEFAULT_TYPE):
 if __name__ == '__main__':
     application = ApplicationBuilder().token(config('TOKEN')).build()
 
-    echo_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), echo)
+    is_greeting = GoPediaFilter()
+
+    echo_handler = MessageHandler(filters.TEXT & (~filters.COMMAND), get_response_for_invalid_message)
 
     start_handler = CommandHandler('start', start)
 
+    greeting_handler = MessageHandler(is_greeting, greetings)
+
     application.add_handler(start_handler)
+    application.add_handler(greeting_handler)
     application.add_handler(echo_handler)
 
     inline_caps_handler = InlineQueryHandler(inline_caps)
